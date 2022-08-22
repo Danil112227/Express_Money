@@ -32,12 +32,12 @@
         </v-sheet>
       </v-col>
 
-      <v-col>
+      <!-- <v-col>
         <v-sheet
           min-height="70vh"
           rounded="lg"
         />
-      </v-col>
+      </v-col> -->
     </v-row>
   </v-container>
 </template>

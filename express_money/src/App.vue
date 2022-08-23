@@ -18,24 +18,29 @@
         />
         <v-btn-toggle
           class="ml-16"
+          
           tile
           color="blue accent-3"
           group
         >
           <v-btn
+          link
+          :to="{name:'home'}"
             value="main"
             class="font-weight-medium text-capitalize black--text"
           >
             Главная
           </v-btn>
-
-          <v-btn
-            value="rules"
-            class="font-weight-medium text-capitalize black--text"
-          >
-            Правила
-          </v-btn>
-
+          <v-hover>
+            <v-btn
+              link
+              :to="{name:'rules'}"
+              value="rules"
+              class="font-weight-medium text-capitalize black--text"
+            >
+              Правила
+            </v-btn>
+          </v-hover>
           <v-btn
             value="FAQ"
             class="font-weight-medium text-capitalize black--text"
@@ -80,20 +85,19 @@
       </v-container>
     </v-app-bar>
     <v-main class="grey lighten-3">
-      <HelloWorld />
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 
 <script>
-import HelloWorld from './components/HelloWorld';
+
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld
   },
 
   data: () => ({

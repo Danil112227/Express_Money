@@ -24,23 +24,43 @@
           group
         >
           <v-btn
-          link
-          :to="{name:'home'}"
+            link
+            :to="{name:'home'}"
             value="main"
             class="font-weight-medium text-capitalize black--text"
           >
             Главная
           </v-btn>
-          <v-hover>
-            <v-btn
-              link
-              :to="{name:'rules'}"
-              value="rules"
-              class="font-weight-medium text-capitalize black--text"
+          
+            
+          <div class="text-center">
+            <v-menu
+              open-on-hover
+              bottom
+              offset-y
             >
-              Правила
-            </v-btn>
-          </v-hover>
+              <template #activator="{ on, attrs }">
+                <v-btn
+                  link
+                  :to="{name:'rules'}"
+                  value="rules"
+                  v-bind="attrs"
+                  v-on="on"
+                  class="font-weight-medium text-capitalize black--text"
+                >
+                  Правила
+                </v-btn>
+              </template>
+
+              <v-list>
+                <v-list-item
+                  
+                >
+                  <HeaderRules privacy="Политика конфиденциальности" security="Безопасность" />
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
           <v-btn
             value="FAQ"
             class="font-weight-medium text-capitalize black--text"
@@ -92,12 +112,13 @@
 
 
 <script>
-
+import HeaderRules from "@/components/HeaderRules.vue"
 
 export default {
   name: 'App',
 
   components: {
+    HeaderRules,
   },
 
   data: () => ({
@@ -115,6 +136,7 @@ export default {
 
 <style lang='scss'>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
 
 $body-font-family: 'IMB Plex Sans';
 $title-font: 'IMB Plex Sans';

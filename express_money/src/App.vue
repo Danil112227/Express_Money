@@ -17,41 +17,41 @@
           :src="require('./assets/logo.png')"
         />
         <v-btn-toggle
-          class="d-flex flex-row justifu-end font-weight-regular"
+          class="ml-16"
           tile
           color="blue accent-3"
           group
         >
           <v-btn
             value="main"
-            class="font-weight-regular"
+            class="font-weight-medium text-capitalize black--text"
           >
             Главная
           </v-btn>
 
           <v-btn
             value="rules"
-            class="font-weight-regular"
+            class="font-weight-medium text-capitalize black--text"
           >
             Правила
           </v-btn>
 
           <v-btn
             value="FAQ"
-            class="font-weight-regular"
+            class="font-weight-medium text-capitalize black--text"
           >
             FAQ
           </v-btn>
 
           <v-btn
             value="reviews"
-            class="font-weight-regular"
+            class="font-weight-medium text-capitalize black--text"
           >
             Отзывы
           </v-btn>
           <v-btn
             value="contacts"
-            class="font-weight-regular"
+            class="font-weight-medium text-capitalize black--text"
           >
             Контакты
           </v-btn>
@@ -61,19 +61,18 @@
     
         <v-spacer />
         <v-btn 
-          class="white--text"
+          class="white--text text-capitalize px-10"
           large
           color="#6377F7"
-          max-width="62"
           max-height="36"
+          max-width="62"
         >
           Войти
         </v-btn>
         <v-btn 
-          class="mx-3"
+          class="ml-3 text-capitalize"
           large
           color="#F1C613"
-          max-width="105"
           max-height="36"
         >
           Регистрация
@@ -121,5 +120,10 @@ $title-font: 'IMB Plex Sans';
     .title { // To pin point specific classes of some components
        font-family: $title-font, sans-serif !important;
     }
+ }
+
+
+ .v-btn{
+  font-size: 16px !important;
  }
 </style>

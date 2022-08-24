@@ -35,13 +35,16 @@
             
           <div class="text-center">
             <v-menu
+              transition="slide-x-transition"
               open-on-hover
               bottom
+              tile
               offset-y
             >
               <template #activator="{ on, attrs }">
                 <v-btn
                   link
+                  tile
                   :to="{name:'rules'}"
                   value="rules"
                   v-bind="attrs"
@@ -53,10 +56,11 @@
               </template>
 
               <v-list>
-                <v-list-item
-                  
-                >
-                  <HeaderRules privacy="Политика конфиденциальности" security="Безопасность" />
+                <v-list-item>
+                  <HeaderRules
+                    privacy="Политика конфиденциальности"
+                    security="Безопасность"
+                  />
                 </v-list-item>
               </v-list>
             </v-menu>

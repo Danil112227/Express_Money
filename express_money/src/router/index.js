@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -14,11 +14,16 @@ const routes = [
     path: '/rules',
     name: 'rules',
     component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/RulesPage.vue')
+  },
+  {
+    path: '/FAQ',
+    name: 'FAQ',
+    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/FAQPage.vue')
   }
-]
+];
 
 const router = new VueRouter({
   routes
-})
+});
 
-export default router
+export default router;

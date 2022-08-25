@@ -8,15 +8,15 @@
       height="90"
     >
       <v-container 
-        class="py-0 fill-height d-flex align-center justify-space-between"
+        class="py-0 fill-height flex-nowrap"
       >
         <v-img
-          class="d-flex align-start"
+          
           max-height="90"
           max-width="237"
           :src="require('./assets/logo.png')"
         />
-        <v-btn-toggle
+        <!-- <v-btn-toggle
           class="ml-16"
           
           tile
@@ -84,7 +84,32 @@
           >
             Контакты
           </v-btn>
-        </v-btn-toggle>
+        </v-btn-toggle> -->
+        <nav class="header__nav">
+          <ul class="topmenu d-flex justify-c">
+            <li>
+              <a
+                link
+                :to="{name:'home'}"
+                value="main"
+              ><span>Главная</span></a>
+            </li>
+            <li>
+              <a
+                :to="{name:'rules'}"
+                value="rules"
+              ><span>Правила</span><i class="fa fa-angle-down" /></a>
+              <ul class="sub-menu">
+                <li><a href="#"><span>Политика конфиденциальности</span></a></li>
+                <li><a href="#"><span>Безопасность</span></a></li>
+              </ul>
+            </li>
+            <li><a href="#"><span>FAQ</span></a></li>
+            <li><a href="#"><span>Отзывы</span></a></li>
+            <li><a href="#"><span>Контакты</span></a></li>
+          </ul>
+        </nav>
+        
     
 
     
@@ -116,23 +141,16 @@
 
 
 <script>
-import HeaderRules from "@/components/HeaderRules.vue"
+// import HeaderRules from "@/components/HeaderRules.vue"
 
 export default {
   name: 'App',
 
   components: {
-    HeaderRules,
   },
 
   data: () => ({
-    links: [
-      'Главная',
-      'Правила',
-      'FAQ',
-      'Отзывы',
-      'Контакты'
-    ],
+
   }),
 };
 </script>
@@ -152,8 +170,69 @@ $title-font: 'IMB Plex Sans';
     }
  }
 
-
  .v-btn{
   font-size: 16px !important;
  }
+
+ .header__nav {
+  margin-left: 55px;
+ }
+
+ .topmenu > li {
+  display: inline-block;
+  position: relative;
+}
+.topmenu > li:last-child {
+  margin-right: 0;
+}
+
+a {
+  display: block;
+  padding: 10px 0;
+  margin: 0 12px;
+  text-decoration: none;
+  outline: none;
+  transition: .5s linear;
+}
+
+.v-application a {
+  color: black !important;
+}
+
+.v-application a:hover {
+  color: #1976d2 !important;
+}
+
+.sub-menu { 
+  font-size: 14px;
+  text-decoration: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  float: none;
+  display: none;
+  background: #fff;
+  box-shadow: 0 0 5px #e1e9f2;
+  border: 1px solid #eaeef4;
+  border-radius: 4px;
+  padding: 10px 4px !important;
+  height: auto;
+  width: 235px;
+  margin: 0;
+}
+
+.header__nav .sub-menu {
+  display: none;
+}
+
+.header__nav ul li:hover .sub-menu {
+  display: block;
+  list-style-type: none;
+}
 </style>

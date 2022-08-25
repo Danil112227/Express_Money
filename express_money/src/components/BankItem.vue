@@ -2,7 +2,7 @@
   <div>
     <img
       :src="image"
-      alt=""
+      alt="banks"
     >
     {{ name }}
     {{ exchange }}
@@ -14,10 +14,22 @@
 export default {
     name: "BankItem",
     props: {
-        image: String,
-        name: String,
-        exchange: String,
-        reserve: String,
+      image:{
+      type: String,
+      required: true
+      },
+    name: {
+      type: String,
+      required: true
+    },
+    exchange: {
+      type: String,
+      required: true
+    },
+    reserve: {
+      type: String,
+      required: true
+    }
     }
 }
 </script>

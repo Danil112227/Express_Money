@@ -1,31 +1,25 @@
 <template>
-  <div class="main__wrapper">
-    <v-card
-      class="mx-auto float-left"
-      max-width="300"
-      tile
-    >
-      <v-list dense>
-        <v-subheader>REPORTS</v-subheader>
-        <v-list-item-group
-          
-          color="primary"
-        >
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-          >
-            <v-list-item-icon>
-              <v-icon v-text="item.icon" />
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.text" />
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-card>
-  </div>
+  <v-list-item
+    class="d-flex align-center rounded-lg"
+    @click="$emit('click')"
+  >
+    <v-list-item-avatar>
+      <v-img
+        width="40px"
+        max-width="40px"
+        height="40px"
+        max-heigth="40px"
+        contain
+        :src="image"
+      />
+    </v-list-item-avatar>
+    <v-list-item-content class="d-flex">
+      <v-list-item-title v-text="title" />
+    </v-list-item-content>
+    <v-list-item-action>
+      <v-list-item-title v-text="count" />
+    </v-list-item-action>
+  </v-list-item>
 </template>
 
 <script>
@@ -41,17 +35,12 @@ export default {
     },
     count: {
       type: Number,
-      required: true
+      default: 1
     },
     
   },
   data: () => ({
-    selectedItem: 1,
-    items: [
-      { text: 'Real-Time', icon: 'mdi-clock' },
-      { text: 'Audience', icon: 'mdi-account' },
-      { text: 'Conversions', icon: 'mdi-flag' },
-    ],
+    
   }),
   
 }
@@ -60,7 +49,7 @@ export default {
 <style>
   .main__wrapper {
     max-width: 1150px;
-    padding-top: 40px;
+    padding-top: 40pxpx;
     margin: 0 auto;
   }
 </style>

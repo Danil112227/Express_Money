@@ -19,7 +19,27 @@ const routes = [
     path: '/FAQ',
     name: 'FAQ',
     component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/FAQPage.vue')
-  }
+  },
+  {
+    path: '/privacy',
+    name: 'privacy',
+    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/privacyPage.vue')
+  },
+  {
+    path: '/security',
+    name: 'security',
+    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/securityPage.vue')
+  },
+  {
+    path: '/feedback',
+    name: 'feedback',
+    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/FeedbackPage.vue')
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/ContactsPage.vue')
+  },
 ];
 
 const router = new VueRouter({

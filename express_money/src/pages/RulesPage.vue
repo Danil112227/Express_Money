@@ -1,4 +1,4 @@
 <template>
-    <div>Правила</div>
+  <div>Правила</div>
 </template>
 

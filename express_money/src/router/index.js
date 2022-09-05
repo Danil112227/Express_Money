@@ -8,37 +8,37 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import(/* webpackChunkName: "MainPage" */ '../pages/MainPage.vue')
+    component: () => import(/* webpackChunkName: "MainPage" */ '@/pages/MainPage.vue')
   },
   {
     path: '/rules',
     name: 'rules',
-    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/RulesPage.vue')
+    component: () => import(/* webpackChunkName: "RulesPage" */ '@/pages/RulesPage.vue')
   },
   {
     path: '/FAQ',
     name: 'FAQ',
-    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/FAQPage.vue')
+    component: () => import(/* webpackChunkName: "RulesPage" */ '@/pages/FAQPage.vue')
   },
   {
     path: '/privacy',
     name: 'privacy',
-    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/privacyPage.vue')
+    component: () => import(/* webpackChunkName: "RulesPage" */ '@/pages/PrivacyPage.vue')
   },
   {
     path: '/security',
     name: 'security',
-    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/securityPage.vue')
+    component: () => import(/* webpackChunkName: "RulesPage" */ '@/pages/SecurityPage.vue')
   },
   {
     path: '/feedback',
     name: 'feedback',
-    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/FeedbackPage.vue')
+    component: () => import(/* webpackChunkName: "RulesPage" */ '@/pages/FeedbackPage.vue')
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import(/* webpackChunkName: "RulesPage" */ '../pages/ContactsPage.vue')
+    component: () => import(/* webpackChunkName: "RulesPage" */ '@/pages/ContactsPage.vue')
   },
 ];
 

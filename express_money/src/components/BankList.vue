@@ -2,7 +2,7 @@
   <v-card
     height="140px"
     width="42%"
-    class="pa-2 rounded-lg"
+    class="pa-2 rounded-lg bank-list-shadow"
     tile
   >
     <v-list
@@ -29,10 +29,13 @@
 
 
 <script>
-import BankItem from '@/components/BankItem.vue';
+// import { title } from 'process';
+import BankItem from "@/components/BankItem.vue"
+
+
 export default {
     components: {
-        BankItem,
+      BankItem
     },
     props: {
         banks: {
@@ -42,3 +45,9 @@ export default {
     }
 }
 </script>
+
+<style>
+  .bank-list-shadow {
+    box-shadow: none !important;
+  }
+</style>

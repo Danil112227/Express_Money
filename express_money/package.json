@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "vue": "^2.6.14",
+    "vue": "^2.7.10",
     "vue-router": "^3.5.1",
     "vuetify": "^2.6.0",
     "vuex": "^3.6.2"
@@ -48,5 +48,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "vetur.validation.template": false,
+"vetur.validation.script": false,
+"vetur.validation.style": false
 }

@@ -1,5 +1,5 @@
 <template>
-  <v-list-item>
+  <v-list-item class="d-flex justify-space-between">
     <v-list-item-avatar>
       <v-img
         :src="bank.image"
@@ -11,16 +11,16 @@
         contain
       />
     </v-list-item-avatar>
-    <v-list-item-content class="d-flex">
+    
+    <v-list-item-content>
       <v-list-item-title v-text="bank.title" />
     </v-list-item-content>
-    <v-list-item-action>
+    <v-list-item-action class="pr-13">
       <v-list-item-title
-        class="mr-10 title__wrapper1"
         v-text="bank.exchange"
       />
     </v-list-item-action>
-    <v-list-item-action class="title__wrapper">
+    <v-list-item-action class="pr-6">
       <v-list-item-title v-text="bank.reserved" />
     </v-list-item-action>
   </v-list-item>

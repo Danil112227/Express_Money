@@ -1,101 +1,65 @@
 <template>
-  <div class="main__wrapper">
-    <div class="main">
-      <CurrencyList
-        @selectItem="selectItem"
-        :items="items"
-      />
-      <BankList
-        v-if="banks.length"
-        :banks="banks"
-      />
+  <div class="main__page">
+    <div class="main__wrapper">
+      <div class="main">
+        <CurrencyList
+          v-model="banks"
+          :items="items"
+        />
+        <BankList
+          v-if="banks.length"
+          :banks="banks"
+        />
+      </div>
+    </div>
+
+    <TimeList />
+
+    <div class="main__wrapper mt-0">
+      <ServiceInfo />
 
 
+      <FeedbackList />
 
 
+      <ReserveList />
+    </div>
+    <ServiceQualityInfo />
 
-      <!-- -------Time Card Wrapper------- -->
-      <TimeCard />
+    <div class="main__wrapper mt-0">
+      <PartnerService />
+
+      <FooterEnd />
     </div>
   </div>
 </template>
 
 <script>
-import TimeCard from "@/components/TimeCard.vue";
 import CurrencyList from "@/components/CurrencyList.vue";
 import BankList from "@/components/BankList.vue";
+import TimeList from "@/components/TimeList.vue";
+import ServiceInfo from "@/components/ServiceInfo.vue";
+import FeedbackList from "@/components/FeedbackList.vue";
+import ReserveList from "@/components/ReserveList.vue";
+import ServiceQualityInfo from "@/components/ServiceQualityInfo.vue";
+import PartnerService from "@/components/PartnerService.vue";
+import FooterEnd from "@/components/FooterEnd.vue";
 
 
 export default {
     name: "MainPage",
-    methods: {
-      selectItem (itemIndex) {
-        const selectedItem = this.items[itemIndex]
-        const selectedTicker = selectedItem.ticker
-        this.banks=this.exchangeData[selectedTicker].banks
-      }
-    },
-    created () {
-      this.selectItem(1)
-    },
     components: {
-        CurrencyList,
-        TimeCard,
-        BankList,
-    },
+    CurrencyList,
+    BankList,
+    TimeList,
+    ServiceInfo,
+    FeedbackList,
+    ReserveList,
+    ServiceQualityInfo,
+    FooterEnd,
+    PartnerService
+},
     data () {
-      const exchangeData = { 
-          BTC: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 751639.1958, reserved: 0}
-            ]
-          },
-          ETH: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 743262.2364, reserved: 1588630}
-            ]
-          },
-          USDC: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 4325.65986, reserved: 33321}
-            ]
-          },
-          ZEC: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 1234.432, reserved: 413214}
-            ]
-          },
-          DASH: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 12344213, reserved: 44213123}
-            ]
-          },
-          XMR: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 334.4123423, reserved: 1234123}
-            ]
-          },
-          ETC: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 44324123, reserved: 2345234}
-            ]
-          },
-          USDT: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 2344523.3424, reserved: 1232155}
-            ]
-          },
-          XRP: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 12.0975, reserved: 553241}
-            ]
-          },
-          LCT: {
-            banks: [
-              { image: require("@/assets/Bitcoin.png"), title: "Райффайзен", exchange: 1947.3218, reserved: 1588630}
-            ]
-          }
-        }
       return {
         banks: [],
         items: [
@@ -110,16 +74,22 @@ export default {
           { image: require("@/assets/Bitcoin.png"), title: 'DASH', ticker: "DASH" },
           { image: require("@/assets/Bitcoin.png"), title: 'ZEC', ticker: "ZEC" },
         ],
-        exchangeData
+        
     }
   }
 };
 </script>
 
 <style>
+  .v-main__wrap {
+    background-color: #F6F7FC;
+  }
+  .main__wrapper {
+    max-width: 1150px;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
     .main {
-        width: 1150px;
-        margin-top: 40px;
         display: flex;
         justify-content: space-between;
     }

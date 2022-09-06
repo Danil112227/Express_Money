@@ -57,7 +57,7 @@ export default {
     ReserveList,
     ServiceQualityInfo,
     FooterEnd,
-    PartnerService
+    PartnerService,
 },
     data () {
       return {

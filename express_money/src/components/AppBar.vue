@@ -64,34 +64,85 @@
 
     
         <v-spacer />
-        <v-btn 
-          class="white--text text-capitalize px-10"
-          large
-          color="#6377F7"
-          max-height="36"
-          max-width="62"
+        <template v-if="user">
+          Привет {{ user.name }}
+          <v-btn 
+            class="white--text text-capitalize px-10 ml-3"
+            large
+            color="#6377F7"
+            max-height="36"
+            max-width="62"
+            @click="$store.dispatch('logout')"
+          >
+            Выйти
+          </v-btn>
+        </template>
+        <template
+          v-else
         >
-          Войти
-        </v-btn>
-        <v-btn 
-          class="ml-3 text-capitalize"
-          large
-          color="#F1C613"
-          max-height="36"
-        >
-          Регистрация
-        </v-btn>
+          <v-btn 
+            class="white--text text-capitalize px-10"
+            large
+            color="#6377F7"
+            max-height="36"
+            max-width="62"
+            @click="showPopup"
+          >
+            Войти
+          </v-btn>
+          <v-btn 
+            class="ml-3 text-capitalize"
+            large
+            color="#F1C613"
+            max-height="36"
+          >
+            Регистрация
+          </v-btn>
+        </template>
       </v-container>
     </v-app-bar>
     <v-main class="grey lighten-3">
       <router-view />
     </v-main>
+
+
+    <v-overlay :value="isPopupShowing">
+      <LoginForm 
+        @closePopup="onClosePopup"
+      />
+    </v-overlay>
   </v-app>
 </template>
 
 
 <script>
+  import LoginForm from "@/components/LoginForm.vue";
+
+
+
 export default {
+  components: {
+    LoginForm,
+},
+methods: {
+  onClosePopup () {
+    this.isPopupShowing = false
+  },
+  showPopup () {
+    this.isPopupShowing = true
+  }
+},
+data () {
+  return {
+    isPopupShowing: false
+  }
+  
+},
+computed: {
+  user () {
+    return this.$store.state.user
+  }
+}
     
 }
 </script>
@@ -100,6 +151,7 @@ export default {
 
 <style lang='scss'>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+    
     
     
     $body-font-family: 'IMB Plex Sans';
@@ -131,6 +183,10 @@ export default {
     .topmenu > li:last-child {
       margin-right: 0;
     }
+
+    .topmenu a {
+      color: #000 !important;
+    }
     
     a {
       display: block;
@@ -139,10 +195,6 @@ export default {
       text-decoration: none;
       outline: none;
       transition: .5s linear;
-    }
-    
-    .v-application a {
-      color: black !important;
     }
     
     .v-application a:hover {

@@ -1,5 +1,7 @@
 <template>
-  <v-list-item class="d-flex justify-space-between">
+  <v-list-item class="d-flex justify-space-between"
+  @click="$emit('click')"
+  >
     <v-list-item-avatar>
       <v-img
         :src="bank.image"
@@ -15,7 +17,7 @@
     <v-list-item-content>
       <v-list-item-title v-text="bank.title" />
     </v-list-item-content>
-    <v-list-item-action class="pr-13">
+    <v-list-item-action class="pr-4">
       <v-list-item-title
         v-text="bank.exchange"
       />

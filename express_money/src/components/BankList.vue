@@ -1,7 +1,7 @@
 <template>
   <v-card
     height="140px"
-    width="42%"
+    width="36%"
     class="pa-2 rounded-lg bank-list-shadow"
     tile
   >
@@ -9,15 +9,16 @@
       class="pa-0"
       dense
     >
-      <v-toolbar-title class="too py-4 pl-5 pr-9 d-flex justify-space-between">
-        <span class="font-weight-bold">Вы получаете</span>
-        <span class="font-weight-bold">Курс</span>
-        <span class="font-weight-bold">Резерв</span>
+      <v-toolbar-title class="list__title py-4 pl-5 pr-9 d-flex justify-space-between">
+        <span class="list__title">Вы получаете</span>
+        <span class="list__title">Курс</span>
+        <span class="list__title">Резерв</span>
       </v-toolbar-title>
       <v-list-item-group
         color="primary"
       >
         <BankItem
+          @click="selectItem(index)"
           v-for="(item, index) in banks"
           :key="index"
           :bank="item"
@@ -29,7 +30,6 @@
 
 
 <script>
-// import { title } from 'process';
 import BankItem from "@/components/BankItem.vue"
 
 
@@ -42,6 +42,20 @@ export default {
             type: Array,
             required: true
         }
+    },
+    methods: {
+      selectItem (index) {
+            this.selectedItem = index
+            this.$emit('input', index)
+        },
+        created () {
+      this.selectItem(1)
+    },
+    },
+    data () {
+      return {
+        selectedItem: 0,
+      }
     }
 }
 </script>
@@ -49,5 +63,9 @@ export default {
 <style>
   .bank-list-shadow {
     box-shadow: none !important;
+  }
+
+  .bank__list__title {
+    font: 600 20px/20px 'IBM Plex Sans', sans-serif !important;
   }
 </style>

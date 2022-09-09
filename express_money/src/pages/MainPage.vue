@@ -1,14 +1,20 @@
 <template>
-  <div class="main__page">
-    <div class="main__wrapper">
+  <div class="main__page wrapper">
+    <div class="main__wrapper wrapper">
       <div class="main">
         <CurrencyList
-          v-model="banks"
-          :items="items"
+          v-model="selectedCurencyTicker"
+          :items="currencies"
         />
         <BankList
+          v-model="selectedBankIndex"
           v-if="banks.length"
           :banks="banks"
+        />
+
+        <ExchangeBlock 
+          :selected-currency="exchangeData[selectedCurencyTicker]"
+          :selected-bank-index="selectedBankIndex"
         />
       </div>
     </div>
@@ -44,6 +50,7 @@ import ReserveList from "@/components/ReserveList.vue";
 import ServiceQualityInfo from "@/components/ServiceQualityInfo.vue";
 import PartnerService from "@/components/PartnerService.vue";
 import FooterEnd from "@/components/FooterEnd.vue";
+import ExchangeBlock from "@/components/ExchangeBlock.vue";
 
 
 export default {
@@ -58,23 +65,97 @@ export default {
     ServiceQualityInfo,
     FooterEnd,
     PartnerService,
+    ExchangeBlock,
 },
+  methods: {
+    },
+    computed: {
+      currencies () {
+        return Object.values(this.exchangeData)
+      },
+      banks () {
+        return this.exchangeData[this.selectedCurencyTicker].banks
+      },
+    },
+    watch: {
+      selectedCurencyTicker () {
+        this.selectedBankIndex = 0
+      }
+    },
     data () {
+      
+      const exchangeData = { 
+          BTC: {
+            title: "BTC", 
+            ticker: "BTC",
+            image: require("@/assets/Bitcoin.png"),
+            banks: [
+              { 
+              image: require("@/assets/Bitcoin.png"), 
+              title: "Райффайзен", 
+              exchange: 751639.1958, 
+              reserved: 0, 
+              alert:"bigAlert",
+              calculatorData: {
+                criptoCurencyLimit: {
+                  min: 0.008559,
+                  max: 0.059914,
+                },
+                curencyLimit: {
+                  min: 5775,
+                  max: 40426
+                }
+              }
+            }
+            ]
+          },
+          ETH: {
+            title: "ETH", 
+            ticker: "ETH",
+            image: require("@/assets/Bitcoin.png"),
+            banks: [
+              { 
+              image: require("@/assets/Bitcoin.png"), 
+              title: "Райффайзен", 
+              exchange: 32441, 
+              reserved: 123, 
+              alert:"simpleAlert",
+              calculatorData: {
+                criptoCurencyLimit: {
+                  min: 0.0000023,
+                  max: 0.0343244,
+                },
+                curencyLimit: {
+                  min: 2334,
+                  max: 40445426
+                }
+              }
+            },
+              { 
+              image: require("@/assets/Bitcoin.png"), 
+              title: "Тинькофф", 
+              exchange: 324234, 
+              reserved: 899999,
+              alert:"bigAlert",
+              calculatorData: {
+                criptoCurencyLimit: {
+                  min: 0.0000023,
+                  max: 0.0343244,
+                },
+                curencyLimit: {
+                  min: 2334,
+                  max: 40445426
+                }
+              }
+            }
+            ]
+          },
+          
+        }
       return {
-        banks: [],
-        items: [
-          { image: require("@/assets/Bitcoin.png"), title: "BTC", ticker: "BTC"},
-          { image: require("@/assets/Bitcoin.png"), title: 'ETH', ticker: "ETH" },
-          { image: require("@/assets/Bitcoin.png"), title: 'LCT', ticker: "LCT" },
-          { image: require("@/assets/Bitcoin.png"), title: 'XRP', ticker: "XRP" },
-          { image: require("@/assets/Bitcoin.png"), title: 'USDT', ticker: "USDT" },
-          { image: require("@/assets/Bitcoin.png"), title: 'USDC', ticker: "USDC" },
-          { image: require("@/assets/Bitcoin.png"), title: 'ETC', ticker: "ETC" },
-          { image: require("@/assets/Bitcoin.png"), title: 'XMR', ticker: "XMR" },
-          { image: require("@/assets/Bitcoin.png"), title: 'DASH', ticker: "DASH" },
-          { image: require("@/assets/Bitcoin.png"), title: 'ZEC', ticker: "ZEC" },
-        ],
-        
+        exchangeData,
+        selectedCurencyTicker: 'BTC',
+        selectedBankIndex: 0,
     }
   }
 };
@@ -89,9 +170,9 @@ export default {
     margin: 0 auto;
     margin-top: 40px;
   }
-    .main {
-        display: flex;
-        justify-content: space-between;
-    }
+  .main {
+      display: flex;
+      justify-content: space-between;
+  }
 </style>
 

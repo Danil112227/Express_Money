@@ -1,6 +1,7 @@
 <template>
-  <div class="footer__wrapper px-3 py-8">
-    <div class="footer d-flex justify-space-between">
+  <div class="footer__wrapper">
+    <div class="horizontLine"></div>
+    <div class="footer d-flex justify-space-between  px-3 py-8">
       <p class="text-caption footer__left">
         Сервис обмена электронных валют.
       </p>
@@ -35,21 +36,15 @@
             alt="vk"
           >
         </a>
-        <a href="vk.com">
-          <img
-            src="@/assets/vk-ico.png"
-            alt="vk"
-          >
-        </a>
       </div>
       <div class="footer-right">
         <img
-        class="mb-1"
+          class="mb-1"
           src="@/assets/bestchange.gif"
           alt="bestchange"
         >
         <img
-        class="ml-2"
+          class="ml-2"
           src="@/assets/glazok.png"
           alt="glazok"
         >
@@ -71,6 +66,7 @@
 </template>
 
 <style>
+
     .footer__soc {
         width: 30%;
     }
@@ -92,5 +88,13 @@
     .footer__links a {
         padding: 0;
 
+    }
+
+    .horizontLine {
+      border-top: 1px solid #e0e2eb;
+      width: 100%;
+      width: 100vw;
+      position: relative;
+      left: calc(-50vw + 50%);
     }
 </style>

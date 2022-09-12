@@ -16,16 +16,16 @@
               </span>
               :
               <span>
-                1 {{ selectedCurrency.title }} = {{ selectedCurrency.selectedBankIndex }}
+                1 {{ selectedCurrency.title }} = {{ selectedCurrency.banks[selectedBankIndex].exchange }}
               </span>
             </div>
-            <div class="exchange__info__line d-flex pb-1">
+            <div class="exchange__info__line d-flex pb-5">
               <span>
                 Резерв
               </span>
               :
               <span>
-                19.6103 ETH
+                {{ selectedCurrency.banks[selectedBankIndex].reserved }} {{ selectedCurrency.title }}
               </span>
               <a
                 href="@/pages/MainPage.vue"
@@ -34,11 +34,49 @@
             </div>
           </div>
           <div class="bank__exchange">
-            <ExchangeItem />
+            <ExchangeItem 
+              :selected-currency="selectedCurrency"
+            />
+            <p class="mb-0">min.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.min }} {{ selectedCurrency.currency }} max.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.max }} {{ selectedCurrency.currency }} </p>
             <ContactInput 
-              v-model="title"
               title="Сумма"
             />
+            <div class="arrow d-flex justify-center pb-7">
+              <div class="arrow__bottom" />
+            </div>
+            <ExchangeBankItem 
+              :selected-currency="selectedCurrency"
+              :selected-bank-index="selectedBankIndex"
+            />
+            <p class="mb-0">min.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.curencyLimit.min }} {{ selectedCurrency.currency }} max.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.curencyLimit.max }} {{ selectedCurrency.currency }}</p>
+            <ContactInput 
+              title="Сумма"
+            />
+            <ContactInput 
+              title="на карту"
+            />
+            <ContactInput 
+              title="ФИО получателя"
+            />
+            <div class="list__title mb-5">
+              <span>Личные данные</span>
+            </div>
+            <ContactInput 
+              title="E-mail"
+            />
+            <ContactInput 
+              title="Телефон"
+            />
+            <div class="login__buttom pb-3">
+              <input
+                @click="onclick"
+                type="submit"
+                formtarget="_top"
+                name="submit"
+                class="rb_submit"
+                value="Обменять"
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -50,12 +88,14 @@
     import ExchangeItem from "@/components/ExchangeItem.vue"
     import WarningBlock from "@/components/WarningBlock.vue"
     import ContactInput from "@/components/ContactInput.vue"
+    import ExchangeBankItem from "@/components/ExchangeBankItem.vue"
     
     export default {
         components: {
             ExchangeItem,
             WarningBlock,
             ContactInput,
+            ExchangeBankItem
         },
         props: {
           selectedCurrency: {
@@ -65,7 +105,12 @@
           selectedBankIndex: {
             type: Number,
             required: true
-          },
+          }
+        },
+        methods: {
+          onclick () {
+            console.log("it works!")
+          }
         },
         computed: {
           banks () {
@@ -81,6 +126,13 @@
         },
         data() {
           return {
+            sum: '',
+          numberCard:'',
+          name:'',
+          comission:'',
+          wallet:'',
+          email:'',
+          phoneNumber:'',
             alerts: {
          bigAlert: [
                     {
@@ -158,7 +210,7 @@
                         content:"Курс фиксируется по бирже Binance.",
                     },
                 ],
-        },
+          },
           }
         }
     }
@@ -205,4 +257,13 @@
         font: 14px/1.3em 'IBM Plex Sans', sans-serif;
         color: #000000;
     }
+
+    .arrow__bottom {
+      width: 15px;
+      height: 15px;
+      border-top: 4px solid #6377F7;
+      border-right: 4px solid #6377F7;
+      margin-right: 60px;
+      transform: rotate(135deg);
+  }  
 </style>

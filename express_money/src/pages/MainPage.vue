@@ -89,6 +89,7 @@ export default {
           BTC: {
             title: "BTC",
             ticker: "BTC",
+            currency: 'UAH',
             image: require("@/assets/Bitcoin.png"),
             banks: [
               { 
@@ -96,6 +97,7 @@ export default {
               title: "Райффайзен", 
               exchange: 751639.1958, 
               reserved: 0, 
+              currency: 'UAH',
               alert:"bigAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -113,6 +115,7 @@ export default {
               title: "Монобанк",
               exchange: 233,
               reserved: 89994412399,
+              currency: 'UAH',
               alert:"bigAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -130,6 +133,7 @@ export default {
               title: "Ощадбанк", 
               exchange: 212, 
               reserved: 4444412,
+              currency: 'UAH',
               alert:"bigAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -147,13 +151,15 @@ export default {
           ETH: {
             title: "ETH", 
             ticker: "ETH",
+            currency: 'UAH',
             image: require("@/assets/Bitcoin.png"),
             banks: [
               { 
               image: require("@/assets/Bitcoin.png"), 
               title: "Райффайзен", 
               exchange: 34424, 
-              reserved: 12335, 
+              reserved: 12335,
+              currency: 'UAH', 
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -171,6 +177,7 @@ export default {
               title: "Монобанк", 
               exchange: 64163, 
               reserved: 89923,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -188,6 +195,7 @@ export default {
               title: "Ощадбанк", 
               exchange: 234167, 
               reserved: 99674,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -205,6 +213,7 @@ export default {
           LTC: {
             title: "LTC", 
             ticker: "LTC",
+            currency: 'UAH',
             image: require("@/assets/Bitcoin.png"),
             banks: [
               { 
@@ -212,6 +221,7 @@ export default {
               title: "Райффайзен", 
               exchange: 432562.23, 
               reserved: 43212, 
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -229,6 +239,7 @@ export default {
               title: "Монобанк", 
               exchange: 3561, 
               reserved: 531234,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -246,6 +257,7 @@ export default {
               title: "Ощадбанк", 
               exchange: 531, 
               reserved: 788454,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -263,6 +275,7 @@ export default {
           XRP: {
             title: "XRP", 
             ticker: "XRP",
+            currency: 'UAH',
             image: require("@/assets/Bitcoin.png"),
             banks: [
               { 
@@ -270,6 +283,7 @@ export default {
               title: "Райффайзен", 
               exchange: 132145.754, 
               reserved: 32423, 
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -287,6 +301,7 @@ export default {
               title: "Монобанк", 
               exchange: 1.534, 
               reserved: 2355111,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -304,6 +319,7 @@ export default {
               title: "Ощадбанк", 
               exchange: 1235, 
               reserved: 112,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -321,6 +337,7 @@ export default {
           ETC: {
             title: "ETC", 
             ticker: "ETC",
+            currency: 'UAH',
             image: require("@/assets/Bitcoin.png"),
             banks: [
               { 
@@ -328,6 +345,7 @@ export default {
               title: "Райффайзен", 
               exchange: 75213123.1958, 
               reserved: 3245, 
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -345,6 +363,7 @@ export default {
               title: "Монобанк", 
               exchange: 1246, 
               reserved: 26823,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -362,6 +381,7 @@ export default {
               title: "Ощадбанк", 
               exchange: 9844, 
               reserved: 412,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -379,6 +399,7 @@ export default {
           XMR: {
             title: "XMR", 
             ticker: "XMR",
+            currency: 'UAH',
             image: require("@/assets/Bitcoin.png"),
             banks: [
               { 
@@ -386,6 +407,7 @@ export default {
               title: "Райффайзен", 
               exchange: 713449.1958, 
               reserved: 0, 
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -403,6 +425,7 @@ export default {
               title: "Монобанк", 
               exchange: 0.1235, 
               reserved: 123451,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -420,6 +443,7 @@ export default {
               title: "Ощадбанк", 
               exchange: 5572, 
               reserved: 664737,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -437,6 +461,7 @@ export default {
           DASH: {
             title: "DASH", 
             ticker: "DASH",
+            currency: 'UAH',
             image: require("@/assets/Bitcoin.png"),
             banks: [
               { 
@@ -444,6 +469,7 @@ export default {
               title: "Райффайзен", 
               exchange: 456271, 
               reserved: 3214, 
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -461,6 +487,7 @@ export default {
               title: "Монобанк", 
               exchange: 974, 
               reserved: 345986,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {
@@ -478,6 +505,7 @@ export default {
               title: "Ощадбанк", 
               exchange: 862, 
               reserved: 67725,
+              currency: 'UAH',
               alert:"simpleAlert",
               calculatorData: {
                 criptoCurencyLimit: {

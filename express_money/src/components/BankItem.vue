@@ -1,6 +1,7 @@
 <template>
-  <v-list-item class="d-flex justify-space-between"
-  @click="$emit('click')"
+  <v-list-item
+    class="d-flex justify-space-between"
+    @click="$emit('click')"
   >
     <v-list-item-avatar>
       <v-img
@@ -36,7 +37,6 @@ export default {
       type: Object,
       required: true,
     },
-    
   },
 };
 </script>

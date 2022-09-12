@@ -1,6 +1,6 @@
 <template>
   <v-card
-    height="140px"
+    height="100%"
     width="36%"
     class="pa-2 rounded-lg bank-list-shadow"
     tile
@@ -15,6 +15,7 @@
         <span class="list__title">Резерв</span>
       </v-toolbar-title>
       <v-list-item-group
+        :value="value"
         color="primary"
       >
         <BankItem
@@ -41,6 +42,10 @@ export default {
         banks: {
             type: Array,
             required: true
+        },
+        value: {
+          type: Number,
+          required: true
         }
     },
     methods: {
@@ -62,7 +67,7 @@ export default {
 
 <style>
   .bank-list-shadow {
-    box-shadow: none !important;
+    box-shadow: 0 0 5px #e1e9f2 !important;
   }
 
   .bank__list__title {

@@ -55,7 +55,7 @@ export default {
 
 <style>
   .currency_list_media {
-    box-shadow: none  !important;;
+    box-shadow: 0 0 5px #e1e9f2 !important;
   }
 
 

@@ -12,7 +12,7 @@
     <div class="form__field__ins">
       <input
         @input="onInput"
-        type="text"
+        :type="type"
         id="form_field_id-1-logmail"
         :value="value"
       >
@@ -28,8 +28,15 @@
                 default: ""
             },
             value: {
-                type: String,
+                type: [
+                  String,
+                  Number
+                ],
                 default: ""
+            },
+            type: {
+              type: String,
+              default: "text"
             }
 
         },

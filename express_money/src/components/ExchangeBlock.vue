@@ -37,9 +37,12 @@
             <ExchangeItem 
               :selected-currency="selectedCurrency"
             />
-            <p class="mb-0">min.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.min }} {{ selectedCurrency.currency }} max.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.max }} {{ selectedCurrency.currency }} </p>
-            <ContactInput 
+            <p class="mb-0">
+              min.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.min }} {{ selectedCurrency.title }} max.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.max }} {{ selectedCurrency.title }}
+            </p>
+            <AppInput 
               title="Сумма"
+              @input="onCurrencyInput"
             />
             <div class="arrow d-flex justify-center pb-7">
               <div class="arrow__bottom" />
@@ -48,23 +51,27 @@
               :selected-currency="selectedCurrency"
               :selected-bank-index="selectedBankIndex"
             />
-            <p class="mb-0">min.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.curencyLimit.min }} {{ selectedCurrency.currency }} max.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.curencyLimit.max }} {{ selectedCurrency.currency }}</p>
-            <ContactInput 
+            <p class="mb-0">
+              min.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.curencyLimit.min }} {{ selectedCurrency.currency }} max.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.curencyLimit.max }} {{ selectedCurrency.currency }}
+            </p>
+            <AppInput 
               title="Сумма"
+              @input="onBankInput"
+              :value="resultExchange"
             />
-            <ContactInput 
+            <AppInput 
               title="на карту"
             />
-            <ContactInput 
+            <AppInput 
               title="ФИО получателя"
             />
             <div class="list__title mb-5">
               <span>Личные данные</span>
             </div>
-            <ContactInput 
+            <AppInput 
               title="E-mail"
             />
-            <ContactInput 
+            <AppInput 
               title="Телефон"
             />
             <div class="login__buttom pb-3">
@@ -87,14 +94,14 @@
 <script>
     import ExchangeItem from "@/components/ExchangeItem.vue"
     import WarningBlock from "@/components/WarningBlock.vue"
-    import ContactInput from "@/components/ContactInput.vue"
+    import AppInput from "@/components/AppInput.vue"
     import ExchangeBankItem from "@/components/ExchangeBankItem.vue"
     
     export default {
         components: {
             ExchangeItem,
             WarningBlock,
-            ContactInput,
+            AppInput,
             ExchangeBankItem
         },
         props: {
@@ -108,6 +115,13 @@
           }
         },
         methods: {
+          onCurrencyInput (input) {
+            this.resultBankExchange = input * this.selectedCurrency.banks[this.selectedBankIndex].exchange
+            
+          },
+          onBankInput (input) {
+            this.resultCurrencyExchange = input / this.selectedCurrency.banks[this.selectedBankIndex].exchange
+          },
           onclick () {
             console.log("it works!")
           }
@@ -124,9 +138,13 @@
             return this.alerts[alertName]
           }
         },
-        data() {
+        data(vm) {
           return {
-            sum: '',
+            resultBankExchange: vm.selectedCurrency.banks[vm.selectedBankIndex].calculatorData.curencyLimit.min,
+            resultCurrencyExchange: vm.selectedCurrency.banks[vm.selectedBankIndex].calculatorData.criptoCurencyLimit.min,
+            // минимум можно купить 1 BTC и минимум можно купить 100 UAH 
+            // минимум можно купить 10 BTC и минимум можно купить 1 UAH 
+          sum: '',
           numberCard:'',
           name:'',
           comission:'',

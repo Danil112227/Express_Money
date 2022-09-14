@@ -43,6 +43,7 @@
             <AppInput 
               title="Сумма"
               @input="onCurrencyInput"
+              :value="resultCurrencyExchange"
             />
             <div class="arrow d-flex justify-center pb-7">
               <div class="arrow__bottom" />
@@ -57,7 +58,7 @@
             <AppInput 
               title="Сумма"
               @input="onBankInput"
-              :value="resultExchange"
+              :value="resultBankExchange"
             />
             <AppInput 
               title="на карту"
@@ -256,6 +257,10 @@
         border-left: 3px solid #f1c613;
     }
 
+    .bank__exchange {
+      font: 14px/1.3em 'IBM Plex Sans', sans-serif;
+    }
+
     .list__title {
         font: 600 20px/20px 'IBM Plex Sans', sans-serif !important;
 
@@ -277,11 +282,7 @@
     }
 
     .arrow__bottom {
-      width: 15px;
-      height: 15px;
-      border-top: 4px solid #6377F7;
-      border-right: 4px solid #6377F7;
-      margin-right: 60px;
-      transform: rotate(135deg);
+      background: url(@/assets/b_arr.png) no-repeat center top;
+      padding: 30px 0 0 0;
   }  
 </style>

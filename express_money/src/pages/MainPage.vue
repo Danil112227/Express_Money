@@ -93,7 +93,7 @@ export default {
             image: require("@/assets/Bitcoin.png"),
             banks: [
               { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Raiffaisen.png"), 
               title: "Райффайзен", 
               exchange: 751639.1958, 
               reserved: 0, 
@@ -111,7 +111,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"),
+              image: require("@/assets/Monobank.png"),
               title: "Монобанк",
               exchange: 233,
               reserved: 89994412399,
@@ -129,7 +129,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Oschadbank.png"), 
               title: "Ощадбанк", 
               exchange: 212, 
               reserved: 4444412,
@@ -152,10 +152,10 @@ export default {
             title: "ETH", 
             ticker: "ETH",
             currency: 'UAH',
-            image: require("@/assets/Bitcoin.png"),
+            image: require("@/assets/Ether.png"),
             banks: [
               { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Raiffaisen.png"), 
               title: "Райффайзен", 
               exchange: 34424, 
               reserved: 12335,
@@ -173,7 +173,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Monobank.png"), 
               title: "Монобанк", 
               exchange: 64163, 
               reserved: 89923,
@@ -191,7 +191,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Oschadbank.png"), 
               title: "Ощадбанк", 
               exchange: 234167, 
               reserved: 99674,
@@ -214,10 +214,10 @@ export default {
             title: "LTC", 
             ticker: "LTC",
             currency: 'UAH',
-            image: require("@/assets/Bitcoin.png"),
+            image: require("@/assets/Litecoin.png"),
             banks: [
               { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Raiffaisen.png"), 
               title: "Райффайзен", 
               exchange: 432562.23, 
               reserved: 43212, 
@@ -235,7 +235,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Monobank.png"), 
               title: "Монобанк", 
               exchange: 3561, 
               reserved: 531234,
@@ -253,7 +253,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Oschadbank.png"), 
               title: "Ощадбанк", 
               exchange: 531, 
               reserved: 788454,
@@ -276,10 +276,10 @@ export default {
             title: "XRP", 
             ticker: "XRP",
             currency: 'UAH',
-            image: require("@/assets/Bitcoin.png"),
+            image: require("@/assets/Ripple.png"),
             banks: [
               { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Raiffaisen.png"), 
               title: "Райффайзен", 
               exchange: 132145.754, 
               reserved: 32423, 
@@ -297,7 +297,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Monobank.png"), 
               title: "Монобанк", 
               exchange: 1.534, 
               reserved: 2355111,
@@ -315,7 +315,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Oschadbank.png"), 
               title: "Ощадбанк", 
               exchange: 1235, 
               reserved: 112,
@@ -338,10 +338,10 @@ export default {
             title: "ETC", 
             ticker: "ETC",
             currency: 'UAH',
-            image: require("@/assets/Bitcoin.png"),
+            image: require("@/assets/Ether-classic.png"),
             banks: [
               { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Raiffaisen.png"), 
               title: "Райффайзен", 
               exchange: 75213123.1958, 
               reserved: 3245, 
@@ -359,7 +359,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Monobank.png"), 
               title: "Монобанк", 
               exchange: 1246, 
               reserved: 26823,
@@ -377,7 +377,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Oschadbank.png"), 
               title: "Ощадбанк", 
               exchange: 9844, 
               reserved: 412,
@@ -400,10 +400,10 @@ export default {
             title: "XMR", 
             ticker: "XMR",
             currency: 'UAH',
-            image: require("@/assets/Bitcoin.png"),
+            image: require("@/assets/Monero.png"),
             banks: [
               { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Raiffaisen.png"), 
               title: "Райффайзен", 
               exchange: 713449.1958, 
               reserved: 0, 
@@ -421,7 +421,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Monobank.png"), 
               title: "Монобанк", 
               exchange: 0.1235, 
               reserved: 123451,
@@ -439,7 +439,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Oschadbank.png"), 
               title: "Ощадбанк", 
               exchange: 5572, 
               reserved: 664737,
@@ -462,10 +462,10 @@ export default {
             title: "DASH", 
             ticker: "DASH",
             currency: 'UAH',
-            image: require("@/assets/Bitcoin.png"),
+            image: require("@/assets/Dash.png"),
             banks: [
               { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Raiffaisen.png"), 
               title: "Райффайзен", 
               exchange: 456271, 
               reserved: 3214, 
@@ -483,7 +483,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Monobank.png"), 
               title: "Монобанк", 
               exchange: 974, 
               reserved: 345986,
@@ -501,7 +501,7 @@ export default {
               }
             },
             { 
-              image: require("@/assets/Bitcoin.png"), 
+              image: require("@/assets/Oschadbank.png"), 
               title: "Ощадбанк", 
               exchange: 862, 
               reserved: 67725,

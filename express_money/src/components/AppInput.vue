@@ -15,7 +15,9 @@
         :type="type"
         id="form_field_id-1-logmail"
         :value="value"
+        autocomplete="off"
       >
+      
     </div>
   </div>
 </template>
@@ -37,13 +39,12 @@
             type: {
               type: String,
               default: "text"
-            }
-
+            },
         },
        methods: {
         onInput (event) {
             this.$emit('input', event.target.value)
-        }
+        },
        }
     }
 </script>
@@ -68,7 +69,6 @@
   -webkit-box-sizing: border-box;
   color: #000;
   height: 40px;
-  width: 300px;
   max-width: 100%;
   padding: 0 15px;
   font: 13px/40px 'IBM Plex Sans', sans-serif;

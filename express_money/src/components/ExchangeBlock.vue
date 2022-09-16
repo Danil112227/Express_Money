@@ -40,11 +40,23 @@
             <p class="mb-0">
               min.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.min }} {{ selectedCurrency.title }} max.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.max }} {{ selectedCurrency.title }}
             </p>
-            <AppInput 
-              title="Сумма"
-              @input="onCurrencyInput"
-              :value="resultCurrencyExchange"
-            />
+            <div class="exchange__input js__wrap__error">
+              <AppInput 
+                title="Сумма"
+                @input="onCurrencyInput"
+                :value="resultCurrencyExchange"
+              />
+              <div class="js__error js__min__cripto__error">
+                <span data-id="sim1">
+                  min.: {{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.min }}
+                </span>
+              </div>
+              <div class="js__error js__max__cripto__error">
+                <span data-id="sim1">
+                  max.: {{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.max }}
+                </span>
+              </div>
+            </div>
             <div class="arrow d-flex justify-center pb-7">
               <div class="arrow__bottom" />
             </div>
@@ -55,11 +67,23 @@
             <p class="mb-0">
               min.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.curencyLimit.min }} {{ selectedCurrency.currency }} max.:{{ selectedCurrency.banks[selectedBankIndex].calculatorData.curencyLimit.max }} {{ selectedCurrency.currency }}
             </p>
-            <AppInput 
-              title="Сумма"
-              @input="onBankInput"
-              :value="resultBankExchange"
-            />
+            <div class="exchange__input js__wrap__error">
+              <AppInput 
+                title="Сумма"
+                @input="onBankInput"
+                :value="resultBankExchange"
+              />
+              <div class="js__error js__min__bank__error">
+                <span data-id="sim1">
+                  min.: {{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.min }}
+                </span>
+              </div>
+              <div class="js__error js__max__bank__error">
+                <span data-id="sim1">
+                  max.: {{ selectedCurrency.banks[selectedBankIndex].calculatorData.criptoCurencyLimit.max }}
+                </span>
+              </div>
+            </div>
             <AppInput 
               title="на карту"
             />
@@ -118,14 +142,47 @@
         methods: {
           onCurrencyInput (input) {
             this.resultBankExchange = input * this.selectedCurrency.banks[this.selectedBankIndex].exchange
-            
+
+            let maxError = document.querySelector('.js__min__cripto__error')
+            let minError = document.querySelector('.js__max__cripto__error')
+            if (input < this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.criptoCurencyLimit.min) {
+              minError.style.display = "block" 
+            } else {
+              if (input > this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.criptoCurencyLimit.min) {
+                minError.style.display = "none"
+              }
+            if (input > this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.curencyLimit.max) {
+              maxError.style.display = "block" 
+            } else {
+              if (input < this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.curencyLimit.max) {
+                maxError.style.display = "none"
+              }
+            }
+            }
           },
           onBankInput (input) {
             this.resultCurrencyExchange = input / this.selectedCurrency.banks[this.selectedBankIndex].exchange
+
+            let maxError = document.querySelector('.js__min__bank__error')
+            let minError = document.querySelector('.js__max__bank__error')
+            if (input < this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.criptoCurencyLimit.min) {
+              minError.style.display = "block" 
+            } else {
+              if (input > this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.criptoCurencyLimit.min) {
+                minError.style.display = "none"
+              }
+            if (input > this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.criptoCurencyLimit.max) {
+              maxError.style.display = "block" 
+            } else {
+              if (input < this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.criptoCurencyLimit.max) {
+                maxError.style.display = "none"
+              }
+            }
+            }
           },
           onclick () {
             console.log("it works!")
-          }
+          },
         },
         computed: {
           banks () {
@@ -143,93 +200,89 @@
           return {
             resultBankExchange: vm.selectedCurrency.banks[vm.selectedBankIndex].calculatorData.curencyLimit.min,
             resultCurrencyExchange: vm.selectedCurrency.banks[vm.selectedBankIndex].calculatorData.criptoCurencyLimit.min,
-            // минимум можно купить 1 BTC и минимум можно купить 100 UAH 
-            // минимум можно купить 10 BTC и минимум можно купить 1 UAH 
-          sum: '',
-          numberCard:'',
-          name:'',
-          comission:'',
-          wallet:'',
-          email:'',
-          phoneNumber:'',
+            sum: '',
+            numberCard:'',
+            name:'',
+            comission:'',
+            wallet:'',
+            email:'',
+            phoneNumber:'',
             alerts: {
-         bigAlert: [
-                    {
-                        content:"Данная операция производится администратором в ручном режиме и занимает от 5 до 60 минут в рабочее время.",
-                    },
-                    {
-                        accent: false,
-                        content:"Оплата заявки происходит после зачисления средств на наш счет биржи Binance. Зачисление происходит при достижении транзакцией необходимого количества подтверждений сети. Количество подтверждений варьируется в зависимости от используемой валюты.",
-                    },
-                    {
-                        accent: false,
-                        content:"Оплата может быть произведена путем осуществления внутрибанковского перевода, курьером путем внесения наличных средств в кассу банка, а так же при помощи оплаты со стороннего банка. Для уточнения информации, обращайтесь к операторам на сайте.",
-                    },
-                    {
-                        accent: false,
-                        content:"Как правило, средства поступают в течение 2-15 минут после оплаты.",
-                    },
-                    {
-                        accent: false,
-                        content:"В редких случаях зачисление банковского перевода может проходить до 24 часов с момента произведения оплаты.",
-                    },
-                    {
-                        accent: false,
-                        content:"При пополнении через кассу банка зачисление может занять до 3 (трех) часов с момента внесения средств.",
-                    },
-                    {
-                        accent: false,
-                        content:"Зачисление средств на кредитные карты может происходить дольше обычного. Сроки зависят от Вашего банка.",
-                    },
-                    {
-                        accent: false,
-                        content:"Курс фиксируется по бирже Binance.",
-                    },
-                    {
-                        accent: false,
-                        content:"В целях противодействия легализации доходов, полученных преступным путем, и финансированию терроризма обменные пункты проводят AML-проверки поступающих от клиентов транзакций.",
-                    },
-                    {
-                        accent: false,
-                        content:"В случае, если транзакция будет идентифицирована как высокорискованная (суммарный объем активов с высоким риском 50% и более,), обменный пункт может приостановить обменную операцию до проведения проверки в соответствии со стандартами FATF. Данные транзакции обрабатываются согласно п. 5.25.-5.25.4 правил ОП.",
-                    },
-                    
-
-                ],
-          simpleAlert: [
-          {
-                        content:"Данная операция производится администратором в ручном режиме и занимает от 5 до 60 минут в рабочее время.",
-                    },
-                    {
-                        accent: false,
-                        content:"Оплата заявки происходит после зачисления средств на наш счет биржи Binance. Зачисление происходит при достижении транзакцией необходимого количества подтверждений сети. Количество подтверждений варьируется в зависимости от используемой валюты.",
-                    },
-                    {
-                        accent: false,
-                        content:"Оплата может быть произведена путем осуществления внутрибанковского перевода, курьером путем внесения наличных средств в кассу банка, а так же при помощи оплаты со стороннего банка. Для уточнения информации, обращайтесь к операторам на сайте.",
-                    },
-                    {
-                        accent: false,
-                        content:"Как правило, средства поступают в течение 2-15 минут после оплаты.",
-                    },
-                    {
-                        accent: false,
-                        content:"В редких случаях зачисление банковского перевода может проходить до 24 часов с момента произведения оплаты.",
-                    },
-                    {
-                        accent: false,
-                        content:"При пополнении через кассу банка зачисление может занять до 3 (трех) часов с момента внесения средств.",
-                    },
-                    {
-                        accent: false,
-                        content:"Зачисление средств на кредитные карты может происходить дольше обычного. Сроки зависят от Вашего банка.",
-                    },
-                    {
-                        accent: false,
-                        content:"Курс фиксируется по бирже Binance.",
-                    },
-                ],
-          },
+              bigAlert: [
+                {
+                    content:"Данная операция производится администратором в ручном режиме и занимает от 5 до 60 минут в рабочее время.",
+                },
+                {
+                    accent: false,
+                    content:"Оплата заявки происходит после зачисления средств на наш счет биржи Binance. Зачисление происходит при достижении транзакцией необходимого количества подтверждений сети. Количество подтверждений варьируется в зависимости от используемой валюты.",
+                },
+                {
+                    accent: false,
+                    content:"Оплата может быть произведена путем осуществления внутрибанковского перевода, курьером путем внесения наличных средств в кассу банка, а так же при помощи оплаты со стороннего банка. Для уточнения информации, обращайтесь к операторам на сайте.",
+                },
+                {
+                    accent: false,
+                    content:"Как правило, средства поступают в течение 2-15 минут после оплаты.",
+                },
+                {
+                    accent: false,
+                    content:"В редких случаях зачисление банковского перевода может проходить до 24 часов с момента произведения оплаты.",
+                },
+                {
+                    accent: false,
+                    content:"При пополнении через кассу банка зачисление может занять до 3 (трех) часов с момента внесения средств.",
+                },
+                {
+                    accent: false,
+                    content:"Зачисление средств на кредитные карты может происходить дольше обычного. Сроки зависят от Вашего банка.",
+                },
+                {
+                    accent: false,
+                    content:"Курс фиксируется по бирже Binance.",
+                },
+                {
+                    accent: false,
+                    content:"В целях противодействия легализации доходов, полученных преступным путем, и финансированию терроризма обменные пункты проводят AML-проверки поступающих от клиентов транзакций.",
+                },
+                {
+                    accent: false,
+                    content:"В случае, если транзакция будет идентифицирована как высокорискованная (суммарный объем активов с высоким риском 50% и более,), обменный пункт может приостановить обменную операцию до проведения проверки в соответствии со стандартами FATF. Данные транзакции обрабатываются согласно п. 5.25.-5.25.4 правил ОП.",
+                },
+              ],
+              simpleAlert: [
+                {
+                    content:"Данная операция производится администратором в ручном режиме и занимает от 5 до 60 минут в рабочее время.",
+                },
+                {
+                    accent: false,
+                    content:"Оплата заявки происходит после зачисления средств на наш счет биржи Binance. Зачисление происходит при достижении транзакцией необходимого количества подтверждений сети. Количество подтверждений варьируется в зависимости от используемой валюты.",
+                },
+                {
+                    accent: false,
+                    content:"Оплата может быть произведена путем осуществления внутрибанковского перевода, курьером путем внесения наличных средств в кассу банка, а так же при помощи оплаты со стороннего банка. Для уточнения информации, обращайтесь к операторам на сайте.",
+                },
+                {
+                    accent: false,
+                    content:"Как правило, средства поступают в течение 2-15 минут после оплаты.",
+                },
+                {
+                    accent: false,
+                    content:"В редких случаях зачисление банковского перевода может проходить до 24 часов с момента произведения оплаты.",
+                },
+                {
+                    accent: false,
+                    content:"При пополнении через кассу банка зачисление может занять до 3 (трех) часов с момента внесения средств.",
+                },
+                {
+                    accent: false,
+                    content:"Зачисление средств на кредитные карты может происходить дольше обычного. Сроки зависят от Вашего банка.",
+                },
+                {
+                    accent: false,
+                    content:"Курс фиксируется по бирже Binance.",
+                },
+              ],
+            },
           }
         }
     }
@@ -279,6 +332,28 @@
     .exchange__info__line {
         font: 14px/1.3em 'IBM Plex Sans', sans-serif;
         color: #000000;
+    }
+
+    .js__wrap__error {
+      position: relative;
+    }
+
+    .js__error {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      top: 85%;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      height: auto;
+      color: #dd5b5b;
+      background: #f8dfdf;
+      border-radius: 3px;
+      padding: 5px;
+      font: 12px 'IBM Plex Sans', sans-serif;
     }
 
     .arrow__bottom {

@@ -13,6 +13,7 @@
     <div class="feedback__btn__rules__wrapper d-flex justify-center">
       <v-btn 
         class="text-capitalize"
+        
         color="accent"
         elevation="2"
         outlined

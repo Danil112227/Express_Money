@@ -145,6 +145,8 @@
 
             let maxError = document.querySelector('.js__min__cripto__error')
             let minError = document.querySelector('.js__max__cripto__error')
+            
+            
             if (input < this.selectedCurrency.banks[this.selectedBankIndex].calculatorData.criptoCurencyLimit.min) {
               minError.style.display = "block" 
             } else {
@@ -159,6 +161,7 @@
               }
             }
             }
+            
           },
           onBankInput (input) {
             this.resultCurrencyExchange = input / this.selectedCurrency.banks[this.selectedBankIndex].exchange

@@ -14,7 +14,6 @@ export default {
             type: String,
             required: true
         },
-
         security: {
             type: String,
             required: true

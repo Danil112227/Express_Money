@@ -17,7 +17,6 @@
         :value="value"
         autocomplete="off"
       >
-      
     </div>
   </div>
 </template>
@@ -68,6 +67,7 @@
   width: 100%;
   -webkit-box-sizing: border-box;
   color: #000;
+  
   height: 40px;
   max-width: 100%;
   padding: 0 15px;

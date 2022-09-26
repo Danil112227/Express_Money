@@ -14,6 +14,7 @@
       </v-card-subtitle>
     </div>
     
+    
     <v-card-text class="pt-0 card__text__color">
       {{ card.comment }}
     </v-card-text>

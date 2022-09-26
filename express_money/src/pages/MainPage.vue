@@ -84,7 +84,6 @@ export default {
       }
     },
     data () {
-      
       const exchangeData = { 
           BTC: {
             title: "BTC",
